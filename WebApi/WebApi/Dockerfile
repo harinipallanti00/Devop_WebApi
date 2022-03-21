@@ -7,8 +7,7 @@ EXPOSE 80
 
 FROM microsoft/dotnet:2.1-sdk-nanoserver-1803 AS build
 WORKDIR /src
-COPY ["WebApi/WebApi.csproj", "WebApi/"]
-RUN dotnet restore "WebApi/WebApi.csproj"
+
 COPY . ./
 RUN dotnet restore   
 RUN dotnet build  -c Release -o /app/build
